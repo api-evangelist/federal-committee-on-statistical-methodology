@@ -26,6 +26,20 @@ common:
     url: https://nces.ed.gov/FCSM/
   - type: Contact
     url: mailto:StatsPolicyGov@omb.eop.gov
+  - type: Integrations
+    url: https://statspolicy.gov/integrations
+integrations:
+  - name: U.S. flag
+  - name: Dot gov
+  - name: Https
+  - name: 'logo: StatsPolicy|gov'
+  - name: Office Chief Statistician
+  - name: Community News and Upcoming Events
+  - name: Relevant Laws, Policies, and Guidance
+  - name: Statistical System-Wide Resources
+  - name: ICSP
+  - name: SAP
+  - name: Office of Management and Budget
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
