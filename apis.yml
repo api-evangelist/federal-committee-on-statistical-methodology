@@ -28,7 +28,7 @@ tags:
   - Statistics
 url: >-
   https://raw.githubusercontent.com/api-evangelist/federal-committee-on-statistical-methodology/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis: []
 common:
   - type: DomainSecurity
