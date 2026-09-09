@@ -1,0 +1,112 @@
+generated: '2026-09-09'
+method: probed
+source: >-
+  Live unauthenticated GET probes of the named /.well-known/ path list on every host
+  this record knows: the FCSM site (statspolicy.gov + www), the FCSM vanity domain
+  (fcsm.gov + www, which 302s to https://statspolicy.gov/FCSM/), and the legacy
+  FCSM site host nces.ed.gov. No baseURL or OpenAPI servers[] host exists — FCSM
+  publishes no API.
+note: >-
+  Every probed path returned 404. No /.well-known/ document is served on any FCSM
+  host, so NO WellKnown or SecurityTxt pointer is emitted in apis.yml — this file
+  records a measured absence, not a surface. Separately, statspolicy.gov answers
+  HTTP 200 with an identical 31,432-byte HTML shell for ANY unknown non-well-known
+  path (/openapi.json, /llms.txt, /integrations and a control path
+  /this-path-does-not-exist-xyz123 all return the same body): that is a soft-404
+  catch-all, not a served document. nces.ed.gov is operated by the National Center
+  for Education Statistics (U.S. Department of Education), which hosted the legacy
+  FCSM site; it is probed here for completeness and any document found there would
+  belong to NCES, not to FCSM.
+hosts:
+  - host: statspolicy.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: www.statspolicy.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+  - host: fcsm.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: www.fcsm.gov
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: nces.ed.gov
+    operator: National Center for Education Statistics (U.S. Department of Education) — legacy FCSM site host, not an FCSM-controlled domain
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null

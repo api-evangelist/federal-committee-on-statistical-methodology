@@ -2,9 +2,14 @@ aid: federal-committee-on-statistical-methodology
 name: Federal Committee on Statistical Methodology
 description: >-
   The Federal Committee on Statistical Methodology (FCSM) is an interagency
-  committee dedicated to improving the quality of Federal statistics. FCSM is
-  hosted under the federal Statistical Policy Office and does not publish a
-  public developer API.
+  committee, chartered by the Office of Management and Budget and supported by
+  the OMB Statistical Policy Office, dedicated to improving the quality of U.S.
+  Federal statistics. FCSM publishes methodology guidance, standards and
+  conference proceedings — including A Framework for Data Quality — and convenes
+  subcommittees and an annual research and policy conference. It is a policy and
+  methodology body, not a data publisher: it does not operate or document a
+  public developer API, and the statistical data itself is published by its
+  member agencies under their own domains.
 type: Index
 deliveryModel:
   model: unknown
@@ -31,16 +36,20 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/federal-committee-on-statistical-methodology.png
 access: 3rd-Party
 created: '2024-12-03'
-modified: '2026-04-28'
+modified: '2026-09-09'
 position: Consuming
 tags:
   - Federal-Government
   - Statistical Methodology
   - Statistics
+  - Data Quality
+  - Government
 tags_raw:
   - Federal Government
   - Statistical Methodology
   - Statistics
+  - Data Quality
+  - Government
 url: >-
   https://raw.githubusercontent.com/api-evangelist/federal-committee-on-statistical-methodology/refs/heads/main/apis.yml
 specificationVersion: '0.23'
@@ -48,26 +57,44 @@ apis: []
 common:
   - type: DomainSecurity
     url: security/federal-committee-on-statistical-methodology-domain-security.yml
+  - type: LLMsTxt
+    url: llms/federal-committee-on-statistical-methodology-llms.txt
   - type: Website
     url: https://statspolicy.gov/FCSM/
   - type: Conference
     url: https://nces.ed.gov/FCSM/
+  - type: Conference
+    url: https://fcsmconf.org/
   - type: Contact
     url: mailto:StatsPolicyGov@omb.eop.gov
-  - type: Integrations
-    url: https://statspolicy.gov/integrations
-integrations:
-  - name: U.S. flag
-  - name: Dot gov
-  - name: Https
-  - name: 'logo: StatsPolicy|gov'
-  - name: Office Chief Statistician
-  - name: Community News and Upcoming Events
-  - name: Relevant Laws, Policies, and Guidance
-  - name: Statistical System-Wide Resources
-  - name: ICSP
-  - name: SAP
-  - name: Office of Management and Budget
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-09'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    FCSM is an OMB-chartered interagency methodology committee whose published output is
+    PDF guidance (A Framework for Data Quality, the AI-Ready Extension); its site
+    statspolicy.gov answers HTTP 200 with one identical 31,432-byte HTML shell for
+    /openapi.json, /llms.txt and a nonsense control path alike, and every /.well-known/
+    path on statspolicy.gov, fcsm.gov and the legacy nces.ed.gov host returns 404.
+  evidence:
+    - url: https://statspolicy.gov/openapi.json
+      status: 200
+    - url: https://statspolicy.gov/this-path-does-not-exist-xyz123
+      status: 200
+    - url: https://statspolicy.gov/.well-known/api-catalog
+      status: 404
+    - url: https://fcsm.gov/.well-known/agent-card.json
+      status: 404
+    - url: https://nces.ed.gov/openapi.json
+      status: 404
+    - url: https://statspolicy.gov/integrations
+      status: 200
+  checked: '2026-09-09'
